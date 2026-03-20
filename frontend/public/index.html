@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6366f1" />
+    <meta name="description" content="NexPath - AI-Powered Career Path Generator. Discover your dream career, learn required skills, track progress, and land your dream job." />
+    
+    <title>NexPath | Your AI Career Guide</title>
+    
+    <!-- Favicon - Simple emoji-based favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+    
+    <!-- Google Fonts - Inter and Poppins for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags for social sharing -->
+    <meta property="og:title" content="NexPath - AI Career Path Generator" />
+    <meta property="og:description" content="Discover your dream career, learn required skills, track progress with visual analytics, and land your dream job." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/6366f1/ffffff?text=NexPath" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NexPath - AI Career Path Generator" />
+    <meta name="twitter:description" content="Your personalized career journey starts here. Get smart recommendations, learning resources, and track your progress." />
+    
+    <style>
+      /* Loading animation while React loads */
+      .loading-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      .loading-text {
+        color: white;
+        margin-top: 20px;
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+      
+      .loading-subtext {
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 10px;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Hide loading when content is ready */
+      .loading-container.hide {
+        opacity: 0;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading animation container -->
+    <div id="loading" class="loading-container">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">NexPath</div>
+      <div class="loading-subtext">Loading your career journey...</div>
+    </div>
+    
+    <!-- React root element -->
+    <div id="root"></div>
+    
+    <script>
+      // Remove loading animation when React is ready
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const loadingElement = document.getElementById('loading');
+          if (loadingElement) {
+            loadingElement.classList.add('hide');
+            // Remove from DOM after animation
+            setTimeout(function() {
+              loadingElement.remove();
+            }, 500);
+          }
+        }, 1000);
+      });
+      
+      // Handle service worker if needed for PWA
+      if ('serviceWorker' in navigator) {
+        // Uncomment to register service worker for PWA
+        // navigator.serviceWorker.register('/service-worker.js');
+      }
+      
+      // Add console welcome message
+      console.log('%c✨ Welcome to NexPath! ✨', 'color: #6366f1; font-size: 20px; font-weight: bold;');
+      console.log('%cYour AI-powered career guide is ready to help you achieve your dreams!', 'color: #10b981; font-size: 14px;');
+    </script>
+  </body>
+</html>
